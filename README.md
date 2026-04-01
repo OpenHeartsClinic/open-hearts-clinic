@@ -1,5 +1,6 @@
 # Open Hearts
-
+ 
+ 
 Open Hearts is now set up in two modes:
 
 - `demo` mode: works locally with browser storage so you can test the full flow immediately
