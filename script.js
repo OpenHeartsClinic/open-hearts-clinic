@@ -322,7 +322,7 @@ async function renderBookings() {
           <div class="booking-card-top" data-open-details="${booking.id}">
             <div>
               <h3>${escapeHtml(booking.name)}</h3>
-              <p class="booking-meta">Preferred date: ${escapeHtml(booking.date)} at ${escapeHtml(formatTime(booking.time))} | Submitted: ${escapeHtml(booking.createdAt)}</p>
+              <p class="booking-meta">Date: ${escapeHtml(booking.date)}<br />Time: ${escapeHtml(formatTime(booking.time))}<br />Submitted: ${escapeHtml(booking.createdAt)}</p>
               <p class="booking-state-note">${escapeHtml(buildStatusMeta(booking))}</p>
             </div>
             <span class="booking-status ${escapeHtml(booking.status)}">${escapeHtml(formatStatus(booking.status))}</span>
@@ -418,7 +418,7 @@ async function openEmailComposer(id, mode) {
   emailModalTitle.textContent = mode === "declined" ? "Declined message ready" : "Accepted message ready";
   emailSummary.innerHTML = `
     <div class="detail-card"><strong class="detail-label">Client</strong><div class="detail-value">${escapeHtml(booking.name)}</div></div>
-    <div class="detail-card"><strong class="detail-label">Appointment</strong><div class="detail-value">${escapeHtml(booking.date)} at ${escapeHtml(formatTime(booking.time))}</div></div>
+    <div class="detail-card"><strong class="detail-label">Appointment</strong><div class="detail-value">Date: ${escapeHtml(booking.date)}<br />Time: ${escapeHtml(formatTime(booking.time))}</div></div>
     <div class="detail-card"><strong class="detail-label">Status now</strong><div class="detail-value">${escapeHtml(formatStatus(booking.status))}</div></div>
   `;
   emailMessage.value = buildTemplateMessage(booking, mode);
@@ -618,6 +618,7 @@ async function initializePage() {
 }
 
 initializePage();
+
 
 
 
