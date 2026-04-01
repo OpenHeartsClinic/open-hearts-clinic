@@ -245,7 +245,14 @@
               </label>
               <label>
                 Preferred time
-                <input id="time" name="time" type="time" required />
+                <select id="time" name="time" required>
+                  <option value="" disabled selected>Select a time window</option>
+                  <option value="Morning (9:00 AM - 12:00 PM)">Morning</option>
+                  <option value="Early afternoon (12:00 PM - 3:00 PM)">Early afternoon</option>
+                  <option value="Late afternoon (3:00 PM - 6:00 PM)">Late afternoon</option>
+                  <option value="Evening (6:00 PM - 8:00 PM)">Evening</option>
+                  <option value="Flexible">Flexible</option>
+                </select>
               </label>
             </div>
             <label>
@@ -378,6 +385,7 @@
     <script src="./script.js"></script>
   </body>
 </html>
+
 
 
 

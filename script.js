@@ -109,10 +109,8 @@ function formatTime(time) {
     return "Not provided";
   }
 
-  const [hours, minutes] = time.split(":");
-  const date = new Date();
-  date.setHours(Number(hours), Number(minutes), 0, 0);
-  return date.toLocaleTimeString("en-GB", { hour: "numeric", minute: "2-digit" });
+  return time;
+}
 }
 
 function formatDateTimeLabel(value) {
@@ -620,6 +618,7 @@ async function initializePage() {
 }
 
 initializePage();
+
 
 
 
