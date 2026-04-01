@@ -133,10 +133,10 @@ function buildStatusMeta(booking) {
 
 function buildTemplateMessage(booking, mode) {
   if (mode === "declined") {
-    return `Open Hearts\nFriendly therapy and support\n\nHello ${booking.name},\n\nThank you for reaching out to Open Hearts. After reviewing your request for ${booking.date} at ${formatTime(booking.time)}, we are sorry to let you know that we cannot confirm this session as requested. Please reply to this email if you would like us to suggest another time or help you with the next step.\n\nKind regards,\nOpen Hearts Team`;
+    return `Open Hearts\nFriendly therapy and support\n\nHello ${booking.name},\n\nThank you for reaching out to Open Hearts. After reviewing your request, we are sorry to let you know that we cannot confirm this session as requested.`n`nDate: ${booking.date}`nTime: ${formatTime(booking.time)}`n`nPlease reply to this email if you would like us to suggest another time or help you with the next step.`n`nPlease note that sessions are scheduled for 30 minutes. If you are more than 10 minutes late, we may need to rearrange the appointment.\n\nKind regards,\nOpen Hearts Team`;
   }
 
-  return `Open Hearts\nFriendly therapy and support\n\nHello ${booking.name},\n\nWelcome to Open Hearts. You have been accepted for your appointment on ${booking.date} at ${formatTime(booking.time)}. We are looking forward to supporting you. If you need to change the time or ask a question before the session, please reply to this email and we will be happy to help.\n\nKind regards,\nOpen Hearts Team`;
+  return `Open Hearts\nFriendly therapy and support\n\nHello ${booking.name},\n\nWelcome to Open Hearts. You have been accepted for your appointment.`n`nDate: ${booking.date}`nTime: ${formatTime(booking.time)}`n`nWe are looking forward to supporting you. If you need to change the time or ask a question before the session, please reply to this email and we will be happy to help.`n`nPlease note that sessions are scheduled for 30 minutes. If you are more than 10 minutes late, we may need to rearrange the appointment.\n\nKind regards,\nOpen Hearts Team`;
 }
 
 function buildMailtoLink(booking, mode, message) {
@@ -620,6 +620,8 @@ async function initializePage() {
 }
 
 initializePage();
+
+
 
 
 
