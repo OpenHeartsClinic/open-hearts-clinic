@@ -1,0 +1,938 @@
+:root {
+  --bg: #f8fbfc;
+  --bg-soft: #eef8f7;
+  --panel: rgba(255, 255, 255, 0.78);
+  --panel-strong: rgba(255, 255, 255, 0.94);
+  --text: #1d3a3f;
+  --muted: #5f7a7d;
+  --line: rgba(67, 125, 130, 0.14);
+  --accent: #ff9f8f;
+  --accent-strong: #ffc6b5;
+  --accent-soft: #7fd7cb;
+  --accent-soft-2: #e9fff9;
+  --success: #6fbf8d;
+  --danger: #d87c73;
+  --warning: #d9b16b;
+  --shadow: 0 24px 70px rgba(92, 146, 148, 0.12);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 8% 10%, rgba(255, 198, 181, 0.5), transparent 24%),
+    radial-gradient(circle at 90% 18%, rgba(127, 215, 203, 0.42), transparent 28%),
+    linear-gradient(180deg, #fbfffe 0%, #f4fbfb 56%, #eef8f7 100%);
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(84, 145, 147, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(84, 145, 147, 0.03) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, black 45%, transparent 96%);
+}
+.ambient { position: fixed; border-radius: 999px; filter: blur(80px); opacity: 0.55; pointer-events: none; }
+.ambient-one { width: 320px; height: 320px; top: -90px; left: -80px; background: rgba(255, 198, 181, 0.48); }
+.ambient-two { width: 360px; height: 360px; right: -120px; top: 80px; background: rgba(127, 215, 203, 0.36); }
+.site-shell { position: relative; z-index: 1; width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 24px 0 80px; }
+.topbar { position: sticky; top: 16px; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; margin-bottom: 40px; border: 1px solid var(--line); border-radius: 24px; background: rgba(255,255,255,0.78); backdrop-filter: blur(18px); box-shadow: var(--shadow); }
+.brand { display: inline-flex; align-items: center; gap: 14px; color: var(--text); text-decoration: none; }
+.brand-text { display: grid; gap: 2px; }
+.brand-text strong { font-size: 1rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.brand-text small { color: var(--muted); font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.brand-logo { position: relative; display: grid; place-items: center; width: 78px; height: 78px; }
+.logo-svg { width: 78px; height: 78px; filter: drop-shadow(0 10px 18px rgba(255, 159, 143, 0.18)); }
+.logo-orbit { position: absolute; inset: 2px; border-radius: 50%; border: 1px dashed rgba(95, 157, 160, 0.18); animation: orbit-spin 10s linear infinite; }
+.logo-orbit::before, .logo-orbit::after { content: ""; position: absolute; border-radius: 50%; }
+.logo-orbit::before { width: 10px; height: 10px; top: 5px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--accent-strong), #fff5ee); box-shadow: 0 0 18px rgba(255, 198, 181, 0.8); }
+.logo-orbit::after { width: 12px; height: 12px; bottom: 10px; right: 8px; background: linear-gradient(135deg, var(--accent-soft), #e8fff9); box-shadow: 0 0 18px rgba(127, 215, 203, 0.75); }
+.logo-halo { fill: rgba(255,255,255,0.58); stroke: rgba(88, 150, 154, 0.18); stroke-width: 1.4; }
+.logo-ring { fill: none; stroke: url(#ringStroke); stroke-width: 4; stroke-linecap: round; }
+.logo-heart { fill: url(#heartFill); }
+.logo-heal { fill: none; stroke: #ffffff; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; opacity: 0.95; }
+.nav { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.nav a, .nav-admin { color: var(--muted); text-decoration: none; background: none; border: 0; font: inherit; cursor: pointer; transition: color 0.2s ease; }
+.nav a:hover, .nav-admin:hover { color: var(--text); }
+.hero { display: grid; grid-template-columns: 1.15fr 0.95fr; gap: 28px; align-items: center; padding: 34px 0 22px; }
+.hero h1, .section-heading h2, .hero-panel h2, .modal-card h2, .story-card h3, .offer-card h3 { margin: 0; font-family: "Cormorant Garamond", serif; font-weight: 700; line-height: 0.95; letter-spacing: -0.03em; }
+.hero h1 { max-width: 10ch; font-size: clamp(3.2rem, 8vw, 6rem); }
+.eyebrow, .mini-label, .role { margin: 0 0 12px; color: #d98b7f; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.72rem; }
+.hero-text, .card-note, .story-card p, .therapist-card p, .booking-copy p, .modal-copy, .contact-strip span, .booking-meta, .booking-message, .detail-value, .email-note, .offer-card p { color: var(--muted); line-height: 1.75; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin: 28px 0 22px; }
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 24px; border-radius: 999px; border: 1px solid transparent; cursor: pointer; text-decoration: none; font-weight: 800; font-family: inherit; transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease; }
+.button:hover { transform: translateY(-1px); }
+.button-primary { color: #503127; background: linear-gradient(135deg, var(--accent-strong), #ffe8dd); }
+.button-secondary { color: var(--text); background: rgba(255,255,255,0.72); border-color: var(--line); }
+.hero-points { display: flex; gap: 12px; flex-wrap: wrap; padding: 0; margin: 0; list-style: none; }
+.hero-points li, .trust-strip div, .contact-tips span, .booking-status { padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.6); color: var(--muted); }
+.glass { border: 1px solid var(--line); background: var(--panel); backdrop-filter: blur(24px); box-shadow: var(--shadow); }
+.hero-panel, .story-card, .therapist-card, .booking-form, .price-panel, .modal-card, .stat-card, .contact-strip, .offer-card { border-radius: 30px; }
+.hero-panel { padding: 28px; position: relative; overflow: hidden; }
+.hero-panel::before { content: ""; position: absolute; inset: auto -60px -80px auto; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 198, 181, 0.34), transparent 70%); }
+.hero-panel-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.hero-badge { padding: 10px 14px; border-radius: 999px; color: #2f6e67; background: rgba(127, 215, 203, 0.18); border: 1px solid rgba(127, 215, 203, 0.3); font-size: 0.82rem; }
+.hero-panel-grid, .price-panel, .admin-stats, .therapist-grid, .story-grid, .booking-contact-row, .booking-action-row, .booking-date-time, .detail-grid, .offers-grid { display: grid; gap: 18px; }
+.hero-panel-grid { margin-top: 28px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.hero-panel-grid div, .price-panel div, .stat-card, .story-card, .therapist-card, .offer-card { padding: 20px; border-radius: 22px; background: var(--panel-strong); }
+.hero-panel-grid strong, .price-panel strong, .stat-card strong, .detail-label { display: block; margin-bottom: 8px; font-size: 1rem; }
+.hero-panel-grid span, .price-panel span, .contact-link { color: #df8f7d; }
+.trust-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 16px 0 72px; }
+.section { margin-top: 72px; }
+.section-heading { max-width: 760px; margin-bottom: 30px; }
+.section-heading h2 { font-size: clamp(2.6rem, 6vw, 4.4rem); }
+.story-grid { grid-template-columns: 1.2fr 1fr 1fr; }
+.feature-large { grid-row: span 2; min-height: 100%; }
+.story-card h3, .therapist-card h3, .offer-card h3 { margin-bottom: 12px; font-size: 2rem; }
+.offers-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.therapist-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.avatar { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; color: #3a4f53; background: linear-gradient(135deg, #fff2ea, #ffd2bf); font-weight: 800; }
+.booking-section { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 24px; align-items: start; }
+.price-panel { margin-top: 24px; padding: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.booking-form { padding: 24px; display: grid; gap: 16px; }
+.booking-date-time { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.admin-form { display: grid; gap: 16px; }
+label { display: grid; gap: 8px; color: var(--text); font-weight: 600; }
+input, textarea { width: 100%; padding: 14px 16px; border-radius: 16px; border: 1px solid rgba(67, 125, 130, 0.14); background: rgba(255,255,255,0.88); color: var(--text); font: inherit; }
+input:focus, textarea:focus { outline: 2px solid rgba(255, 198, 181, 0.5); border-color: rgba(255, 159, 143, 0.55); }
+.form-response { min-height: 24px; margin: 0; color: var(--success); }
+.modal { position: fixed; inset: 0; display: grid; place-items: center; z-index: 1000; overflow-y: auto; padding: 24px; background: rgba(112, 154, 157, 0.22); backdrop-filter: blur(10px); }
+.modal-card { width: min(940px, 100%); max-height: calc(100vh - 48px); padding: 32px 28px 28px; position: relative; overflow-y: auto; }
+.modal-small { width: min(720px, 100%); }
+.close-button { position: absolute; top: 20px; right: 22px; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; background: rgba(255,255,255,0.72); color: var(--text); font-size: 1.7rem; line-height: 1; cursor: pointer; }
+.admin-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 8px 64px 20px 0; }
+.admin-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 20px; }
+.contact-strip { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 20px; margin-bottom: 20px; }
+.contact-strip strong { display: block; margin-bottom: 8px; font-size: 1rem; }
+.contact-tips { display: flex; gap: 10px; flex-wrap: wrap; }
+.booking-filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+.filter-button { min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.75); color: var(--muted); font: inherit; font-weight: 700; cursor: pointer; }
+.filter-button.active { color: #503127; background: linear-gradient(135deg, var(--accent-strong), #ffe7dc); border-color: transparent; }
+.bookings-list { display: grid; gap: 14px; }
+.booking-item { padding: 20px; border-radius: 22px; border: 1px solid var(--line); background: rgba(255,255,255,0.74); }
+.booking-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 12px; cursor: pointer; }
+.booking-item h3, .booking-item p { margin: 0; }
+.booking-status { min-width: 96px; text-align: center; text-transform: capitalize; }
+.booking-status.pending { color: var(--warning); border-color: rgba(217, 177, 107, 0.35); }
+.booking-status.accepted { color: var(--success); border-color: rgba(111, 191, 141, 0.35); }
+.booking-status.declined { color: var(--danger); border-color: rgba(216, 124, 115, 0.35); }
+.booking-contact-row { grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 16px 0 12px; }
+.booking-contact-card, .detail-card { padding: 14px 16px; border-radius: 18px; background: rgba(255,255,255,0.88); border: 1px solid rgba(67, 125, 130, 0.1); }
+.booking-contact-card strong, .detail-card strong { display: block; margin-bottom: 6px; }
+.contact-link { text-decoration: none; word-break: break-word; }
+.booking-meta { margin-bottom: 12px; }
+.booking-message { margin-bottom: 16px; }
+.booking-action-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.single-row { grid-template-columns: 1fr; }
+.action-button { min-height: 46px; border-radius: 999px; border: 1px solid transparent; font: inherit; font-weight: 700; cursor: pointer; }
+.action-button.accept { color: #22473a; background: linear-gradient(135deg, #bff1dc, #e6fff5); }
+.action-button.decline { color: #8a4d46; background: rgba(255, 211, 204, 0.7); border-color: rgba(216, 124, 115, 0.18); }
+.detail-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 14px; }
+.compact-grid { margin-bottom: 18px; }
+.email-note { margin-top: 14px; margin-bottom: 0; }
+.hidden { display: none; }
+@keyframes orbit-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@media (max-width: 980px) {
+  .hero, .booking-section, .trust-strip, .therapist-grid, .story-grid, .offers-grid, .booking-contact-row, .booking-action-row, .detail-grid { grid-template-columns: 1fr; }
+  .feature-large { grid-row: auto; }
+  .topbar, .admin-header, .contact-strip, .booking-card-top { flex-direction: column; align-items: flex-start; }
+  .admin-header { margin-right: 0; padding-top: 28px; }
+}
+@media (max-width: 640px) {
+  .site-shell { width: min(100% - 20px, 1180px); }
+  .topbar { padding: 14px 16px; border-radius: 18px; }
+  .hero { padding-top: 16px; }
+  .hero h1 { max-width: none; }
+  .hero-panel-grid, .price-panel, .admin-stats, .booking-date-time { grid-template-columns: 1fr; }
+  .modal-card { padding: 28px 18px 20px; }
+  .close-button { top: 14px; right: 14px; }
+  .brand-logo { width: 68px; height: 68px; }
+  .logo-svg { width: 68px; height: 68px; }
+}
+.hero-visual {
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-visual img,
+.offer-image,
+.therapist-image,
+.email-logo,
+#offer-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.offer-card,
+.therapist-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.offer-card-wide {
+  grid-column: span 2;
+}
+
+.offer-image,
+.therapist-image {
+  border-radius: 20px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(67, 125, 130, 0.08);
+  background: rgba(255,255,255,0.9);
+}
+
+.therapist-image {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.offer-link {
+  margin-top: auto;
+}
+
+.offer-page-main {
+  padding-bottom: 40px;
+}
+
+.offer-page-hero {
+  align-items: stretch;
+}
+
+.email-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.email-logo-wrap {
+  width: 84px;
+  min-width: 84px;
+  padding: 8px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.88);
+  border: 1px solid var(--line);
+}
+
+.email-logo {
+  border-radius: 18px;
+}
+
+.button:hover,
+.button:focus-visible,
+.nav-admin:hover,
+.nav-admin:focus-visible,
+.filter-button:hover,
+.filter-button:focus-visible,
+.action-button:hover,
+.action-button:focus-visible,
+.offer-link:hover,
+.offer-link:focus-visible {
+  box-shadow: 0 12px 28px rgba(127, 215, 203, 0.18);
+  border-color: rgba(127, 215, 203, 0.4);
+  outline: none;
+}
+
+.nav-admin:hover,
+.nav-admin:focus-visible {
+  color: var(--text);
+  background: rgba(255,255,255,0.72);
+  border-radius: 999px;
+}
+
+.booking-card-top:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 980px) {
+  .offer-card-wide {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .email-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .email-logo-wrap {
+    width: 72px;
+    min-width: 72px;
+  }
+}
+/* Professional polish overrides */
+.hero h1 {
+  font-size: clamp(2.8rem, 6.2vw, 4.8rem);
+  line-height: 0.98;
+  max-width: 11ch;
+}
+
+.section-heading h2 {
+  font-size: clamp(2.15rem, 4.6vw, 3.35rem);
+  line-height: 1.02;
+  max-width: 14ch;
+}
+
+.story-card h3,
+.therapist-card h3,
+.offer-card h3,
+.modal-card h2 {
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  line-height: 1.02;
+}
+
+.hero-text,
+.card-note,
+.story-card p,
+.therapist-card p,
+.booking-copy p,
+.modal-copy,
+.contact-strip span,
+.booking-meta,
+.booking-message,
+.detail-value,
+.email-note,
+.offer-card p,
+.offer-page-main .hero-text {
+  font-size: 1rem;
+}
+
+.story-card,
+.offer-card,
+.therapist-card,
+.hero-visual,
+.booking-item,
+.detail-card,
+.booking-contact-card,
+.stat-card,
+.contact-strip {
+  overflow: hidden;
+}
+
+.story-grid,
+.offers-grid,
+.therapist-grid {
+  align-items: stretch;
+}
+
+.story-card,
+.offer-card,
+.therapist-card {
+  height: 100%;
+}
+
+.hero-visual {
+  min-height: 360px;
+}
+
+.hero-visual img,
+#offer-image {
+  max-height: 420px;
+  object-fit: contain;
+}
+
+.offer-image,
+.therapist-image {
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  padding: 12px;
+}
+
+.offer-card {
+  gap: 10px;
+  padding: 16px;
+}
+
+.offer-card p {
+  margin-bottom: 8px;
+}
+
+.offer-link {
+  width: 100%;
+  text-align: center;
+  white-space: normal;
+  min-height: 56px;
+  padding: 12px 18px;
+  line-height: 1.35;
+}
+
+.offer-page-main .hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  max-width: 10ch;
+}
+
+.offer-page-main .section-heading h2 {
+  max-width: 16ch;
+}
+
+.offer-page-main .story-card p,
+.offer-page-main .hero-text {
+  max-width: 62ch;
+}
+
+.email-logo {
+  object-fit: contain;
+}
+
+@media (max-width: 980px) {
+  .hero-visual {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero h1,
+  .offer-page-main .hero h1 {
+    font-size: clamp(2.3rem, 10vw, 3.4rem);
+    max-width: none;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(2rem, 8vw, 2.7rem);
+    max-width: none;
+  }
+
+  .offer-link {
+    min-height: 52px;
+  }
+}
+.premium-therapists {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.premium-therapist-card {
+  padding: 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,253,252,0.96));
+}
+
+.portrait-image {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  padding: 0;
+  border-radius: 22px;
+  margin-bottom: 18px;
+}
+
+.therapist-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.therapist-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(127, 215, 203, 0.14);
+  color: #3f6f73;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.premium-therapist-card .role {
+  margin-bottom: 10px;
+}
+
+.premium-therapist-card p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 980px) {
+  .premium-therapists {
+    grid-template-columns: 1fr;
+  }
+}
+.action-button.is-current {
+  cursor: default;
+  opacity: 1;
+  box-shadow: none;
+}
+
+.action-button.is-current.accept {
+  background: linear-gradient(135deg, #bff1dc, #d9fff0);
+  border-color: rgba(111, 191, 141, 0.26);
+}
+
+.action-button.is-current.decline {
+  background: linear-gradient(135deg, #ffd7cf, #ffeae6);
+  border-color: rgba(216, 124, 115, 0.22);
+}
+
+.booking-item-accepted {
+  border-color: rgba(111, 191, 141, 0.22);
+}
+
+.booking-item-declined {
+  border-color: rgba(216, 124, 115, 0.22);
+}
+.admin-stats-wide {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.admin-workflow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.admin-workflow strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.admin-workflow-copy {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.workflow-steps {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.workflow-steps span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.6);
+  color: var(--muted);
+}
+
+.booking-status.accepted,
+.booking-status.declined {
+  font-weight: 800;
+}
+
+@media (max-width: 980px) {
+  .admin-stats-wide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-workflow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .admin-stats-wide {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Friendly professional polish */
+body {
+  background:
+    radial-gradient(circle at 10% 12%, rgba(255, 210, 194, 0.5), transparent 24%),
+    radial-gradient(circle at 88% 16%, rgba(141, 224, 214, 0.38), transparent 26%),
+    linear-gradient(180deg, #fcfffe 0%, #f5fbfa 52%, #eef7f6 100%);
+}
+
+.topbar {
+  background: rgba(255, 255, 255, 0.84);
+  border-color: rgba(67, 125, 130, 0.12);
+  box-shadow: 0 20px 55px rgba(92, 146, 148, 0.1);
+}
+
+.nav a,
+.nav-admin,
+.hero-text,
+.story-card p,
+.offer-card p,
+.therapist-card p,
+.booking-copy p,
+.modal-copy,
+.booking-meta,
+.booking-message,
+.detail-value,
+.email-note,
+.admin-workflow-copy,
+.workflow-steps span {
+  color: #5a7578;
+}
+
+.hero,
+.section,
+.booking-section {
+  position: relative;
+}
+
+.hero-copy,
+.booking-copy {
+  max-width: 640px;
+}
+
+.hero h1 {
+  font-size: clamp(2.9rem, 6vw, 5rem);
+  max-width: 11.5ch;
+}
+
+.hero-text {
+  max-width: 58ch;
+}
+
+.section-heading h2 {
+  font-size: clamp(2.2rem, 4.8vw, 3.5rem);
+  max-width: 13ch;
+}
+
+.glass,
+.booking-item,
+.booking-contact-card,
+.detail-card,
+.workflow-steps span,
+.filter-button,
+.button-secondary,
+.nav-admin {
+  box-shadow: 0 18px 44px rgba(95, 148, 150, 0.08);
+}
+
+.story-card,
+.offer-card,
+.therapist-card,
+.booking-form,
+.price-panel,
+.modal-card,
+.stat-card,
+.admin-workflow,
+.booking-item {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.story-card,
+.offer-card,
+.therapist-card,
+.booking-item,
+.admin-workflow,
+.stat-card {
+  border: 1px solid rgba(67, 125, 130, 0.1);
+}
+
+.offer-card,
+.therapist-card,
+.story-card {
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.offer-card:hover,
+.therapist-card:hover,
+.story-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 52px rgba(95, 148, 150, 0.12);
+  border-color: rgba(127, 215, 203, 0.28);
+}
+
+.offer-image,
+.therapist-image,
+.hero-visual img,
+#offer-image {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 251, 250, 0.95));
+}
+
+.offer-card p,
+.therapist-card p,
+.story-card p {
+  font-size: 0.98rem;
+}
+
+.offer-card h3,
+.therapist-card h3,
+.story-card h3 {
+  color: #224249;
+}
+
+.button,
+.action-button,
+.filter-button,
+.nav-admin,
+.close-button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.button:hover,
+.button:focus-visible,
+.action-button:hover,
+.action-button:focus-visible,
+.filter-button:hover,
+.filter-button:focus-visible,
+.nav-admin:hover,
+.nav-admin:focus-visible,
+.close-button:hover,
+.close-button:focus-visible {
+  transform: translateY(-1px);
+}
+
+.button-primary {
+  box-shadow: 0 14px 30px rgba(255, 191, 163, 0.28);
+}
+
+.button-secondary,
+.filter-button,
+.nav-admin {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.filter-button:hover,
+.filter-button:focus-visible,
+.nav-admin:hover,
+.nav-admin:focus-visible,
+.button-secondary:hover,
+.button-secondary:focus-visible {
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.booking-item {
+  box-shadow: 0 14px 34px rgba(95, 148, 150, 0.08);
+}
+
+.booking-card-top {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(67, 125, 130, 0.08);
+}
+
+.booking-state-note {
+  margin-top: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #4b7273;
+}
+
+.booking-item-pending .booking-state-note {
+  color: #b28b4f;
+}
+
+.booking-item-accepted .booking-state-note {
+  color: #4f8a64;
+}
+
+.booking-item-declined .booking-state-note {
+  color: #b06861;
+}
+
+.booking-status {
+  min-width: 108px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.action-button {
+  min-height: 48px;
+  box-shadow: 0 10px 24px rgba(95, 148, 150, 0.08);
+}
+
+.action-button.accept {
+  background: linear-gradient(135deg, #c8f3e2, #ebfff7);
+  border: 1px solid rgba(111, 191, 141, 0.2);
+}
+
+.action-button.decline {
+  background: linear-gradient(135deg, #ffe0da, #fff1ee);
+  border: 1px solid rgba(216, 124, 115, 0.18);
+}
+
+.action-button.is-current.accept {
+  color: #1f5d3c;
+}
+
+.action-button.is-current.decline {
+  color: #8d4f49;
+}
+
+.admin-workflow {
+  align-items: center;
+  background: linear-gradient(135deg, rgba(255,255,255,0.94), rgba(243,252,250,0.95));
+}
+
+.workflow-steps span {
+  background: rgba(255, 255, 255, 0.94);
+  font-weight: 700;
+}
+
+.form-response,
+.email-note {
+  font-weight: 700;
+}
+
+input,
+textarea {
+  background: rgba(255,255,255,0.96);
+}
+
+.modal {
+  background: rgba(96, 141, 145, 0.2);
+}
+
+@media (max-width: 640px) {
+  .hero h1,
+  .section-heading h2 {
+    letter-spacing: -0.025em;
+  }
+
+  .booking-status {
+    min-width: auto;
+  }
+}
+
+.email-preview-card {
+  margin-bottom: 18px;
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(67, 125, 130, 0.12);
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(246,252,251,0.98));
+  box-shadow: 0 16px 34px rgba(95, 148, 150, 0.08);
+}
+
+.email-preview-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(67, 125, 130, 0.08);
+}
+
+.email-preview-top strong {
+  display: block;
+  color: #224249;
+  font-size: 1rem;
+}
+
+.email-preview-top p {
+  margin: 4px 0 0;
+  color: #5a7578;
+  font-size: 0.92rem;
+}
+
+.email-preview-logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.94);
+  border: 1px solid rgba(67, 125, 130, 0.08);
+  padding: 6px;
+}
+
+.email-preview-body {
+  color: #35545a;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  white-space: pre-wrap;
+}
+
+.premium-therapist-card {
+  padding: 18px;
+  border: 1px solid rgba(67, 125, 130, 0.1);
+  box-shadow: 0 20px 46px rgba(95, 148, 150, 0.1);
+}
+
+.premium-therapist-card h3 {
+  font-size: 2.1rem;
+  margin-bottom: 8px;
+}
+
+.portrait-image {
+  aspect-ratio: 5 / 6;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 1px solid rgba(67, 125, 130, 0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(243,251,250,0.98));
+}
+
+.premium-therapist-card .role {
+  color: #d28b7b;
+  letter-spacing: 0.14em;
+  font-size: 0.74rem;
+}
+
+.premium-therapist-card p:last-of-type {
+  color: #587175;
+  line-height: 1.72;
+}
+
+.therapist-meta-row {
+  margin-bottom: 14px;
+}
+
+.therapist-tag {
+  background: rgba(127, 215, 203, 0.16);
+  border: 1px solid rgba(127, 215, 203, 0.24);
+}
+
+.premium-therapists {
+  gap: 22px;
+}
+
+.premium-therapist-card {
+  padding: 20px;
+  border: 1px solid rgba(80, 128, 131, 0.1);
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,251,250,0.96));
+  box-shadow: 0 18px 40px rgba(98, 146, 148, 0.08);
+}
+
+.premium-therapist-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 48px rgba(98, 146, 148, 0.1);
+  border-color: rgba(125, 205, 194, 0.26);
+}
+
+.portrait-image {
+  aspect-ratio: 5 / 6;
+  object-fit: cover;
+  border-radius: 26px;
+  border: 1px solid rgba(80, 128, 131, 0.08);
+  background: linear-gradient(180deg, #ffffff, #f5fbfa);
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  color: #34575c;
+  background: linear-gradient(135deg, #fff4ee, #ffd9c9);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.therapist-tag {
+  background: rgba(218, 245, 240, 0.9);
+  color: #4a7578;
+  border: 1px solid rgba(127, 215, 203, 0.22);
+  font-weight: 700;
+}
+
+.premium-therapist-card h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #224249;
+}
+
+.premium-therapist-card .role {
+  color: #cc8c7a;
+  letter-spacing: 0.12em;
+  font-size: 0.73rem;
+  margin-bottom: 12px;
+}
+
+.premium-therapist-card p:last-of-type {
+  color: #5c7578;
+  line-height: 1.74;
+}

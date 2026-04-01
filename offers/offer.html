@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Hearts | Support Area</title>
+    <meta name="description" content="Explore how Open Hearts supports different areas of life with kind, practical help." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="../index.html" aria-label="Open Hearts home">
+          <span class="brand-logo" aria-hidden="true">
+            <span class="logo-orbit"></span>
+            <svg class="logo-svg" viewBox="0 0 120 120" role="img" aria-hidden="true">
+              <defs>
+                <linearGradient id="heartFillSub" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#fff7f2"></stop>
+                  <stop offset="55%" stop-color="#ffbfa3"></stop>
+                  <stop offset="100%" stop-color="#ff9a8e"></stop>
+                </linearGradient>
+                <linearGradient id="ringStrokeSub" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffd8bd"></stop>
+                  <stop offset="100%" stop-color="#7ad6ca"></stop>
+                </linearGradient>
+              </defs>
+              <circle class="logo-halo" cx="60" cy="60" r="38"></circle>
+              <path class="logo-ring" d="M60 14C34.6 14 14 34.6 14 60s20.6 46 46 46 46-20.6 46-46" style="stroke:url(#ringStrokeSub)"></path>
+              <path class="logo-heart" d="M60 89C42 76 26 62 26 44c0-11.1 8.4-19 18.3-19 6.5 0 12.2 3.1 15.7 8.4 3.5-5.3 9.2-8.4 15.7-8.4C85.6 25 94 32.9 94 44c0 18-16 32-34 45Z" style="fill:url(#heartFillSub)"></path>
+              <path class="logo-heal" d="M45 55c5 7 10 10 15 10 6 0 11-3 16-10"></path>
+            </svg>
+          </span>
+          <span class="brand-text"><strong>Open Hearts</strong><small>Friendly therapy and support</small></span>
+        </a>
+        <nav class="nav">
+          <a href="../index.html#offers">All support areas</a>
+          <a href="../index.html#booking">Book</a>
+        </nav>
+      </header>
+
+      <main class="offer-page-main">
+        <section class="hero offer-page-hero">
+          <div class="hero-copy">
+            <p class="eyebrow" id="offer-eyebrow">Support area</p>
+            <h1 id="offer-title">Support area</h1>
+            <p class="hero-text" id="offer-summary"></p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="../index.html#booking">Book a free session</a>
+              <a class="button button-secondary" href="../index.html#offers">Back to services</a>
+            </div>
+          </div>
+          <div class="hero-visual glass">
+            <img id="offer-image" src="../assets/general.svg" alt="Support illustration" />
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Why We Offer This</p>
+            <h2 id="offer-why-title">Why this support matters</h2>
+          </div>
+          <div class="story-grid" id="offer-points"></div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const topics = {
+        money: {
+          eyebrow: 'Money worries',
+          title: 'Support when money pressure affects daily life.',
+          summary: 'Financial stress can affect sleep, relationships, confidence, and mental wellbeing. We offer calm support to help people feel less alone while they work through uncertainty.',
+          image: '../assets/money.svg',
+          whyTitle: 'Why we offer support for money worries',
+          points: [
+            ['Why we help', 'Money pressure often creates fear, shame, and exhaustion. We make space to talk about that without judgment.'],
+            ['How we help', 'We help clients process stress, build emotional steadiness, and think more clearly about their next step.'],
+            ['What support looks like', 'Sessions focus on practical reflection, confidence-building, and reducing the panic that can surround finances.']
+          ]
+        },
+        general: {
+          eyebrow: 'General help',
+          title: 'Support for the parts of life that feel hard to carry alone.',
+          summary: 'Not every struggle fits a label. Sometimes people simply need a safe, steady conversation about what is going on in life right now.',
+          image: '../assets/general.svg',
+          whyTitle: 'Why we offer general support',
+          points: [
+            ['Why we help', 'People often wait too long because they think their issue is not serious enough. It still matters.'],
+            ['How we help', 'We listen carefully, help untangle the problem, and support clients in finding clarity and relief.'],
+            ['What support looks like', 'Sessions can focus on uncertainty, stress, confidence, life changes, or simply needing someone to talk to.']
+          ]
+        },
+        mental: {
+          eyebrow: 'Mental health',
+          title: 'Support for anxiety, low mood, grief, and overwhelm.',
+          summary: 'Mental health struggles can make ordinary life feel much harder. Open Hearts offers steady, compassionate support to help people feel safer and more understood.',
+          image: '../assets/mental.svg',
+          whyTitle: 'Why we offer mental health support',
+          points: [
+            ['Why we help', 'People deserve support before things reach crisis point.'],
+            ['How we help', 'We help clients talk through symptoms, triggers, patterns, and the emotional weight they are carrying.'],
+            ['What support looks like', 'Support may include anxiety work, low-mood conversations, grief support, and coping with emotional strain.']
+          ]
+        },
+        relationships: {
+          eyebrow: 'Relationships',
+          title: 'Support for connection, conflict, and difficult relationship changes.',
+          summary: 'Relationship strain can affect every part of life. We offer a calm space to work through conflict, distance, and emotional confusion.',
+          image: '../assets/relationships.svg',
+          whyTitle: 'Why we offer relationship support',
+          points: [
+            ['Why we help', 'People can feel isolated in conflict, breakups, or family tension.'],
+            ['How we help', 'We help clients process emotions, communicate more clearly, and understand what they need.'],
+            ['What support looks like', 'Support may focus on couples, family dynamics, boundaries, breakups, or rebuilding trust.']
+          ]
+        },
+        studies: {
+          eyebrow: 'School and studies',
+          title: 'Support for academic pressure, confidence, and study stress.',
+          summary: 'Education can bring intense pressure. We support students and learners who feel stressed, overwhelmed, or stuck.',
+          image: '../assets/studies.svg',
+          whyTitle: 'Why we offer study support',
+          points: [
+            ['Why we help', 'School and studies can affect confidence, identity, and emotional wellbeing.'],
+            ['How we help', 'We help people talk through pressure, motivation, focus problems, and the fear of falling behind.'],
+            ['What support looks like', 'Sessions can support exam stress, perfectionism, burnout, and confidence in education.']
+          ]
+        },
+        addiction: {
+          eyebrow: 'Addiction',
+          title: 'Support for harmful habits, dependency, and recovery conversations.',
+          summary: 'Addiction can be painful and isolating. We offer a safe, non-shaming place to talk about coping patterns and recovery.',
+          image: '../assets/addiction.svg',
+          whyTitle: 'Why we offer addiction support',
+          points: [
+            ['Why we help', 'People need support that is compassionate, not condemning.'],
+            ['How we help', 'We help clients explore patterns, triggers, emotional pain, and the support they may need around change.'],
+            ['What support looks like', 'Support can focus on dependency, self-awareness, recovery steps, and emotional resilience.']
+          ]
+        },
+        abuse_selfharm: {
+          eyebrow: 'Abuse and self-harm',
+          title: 'Support when someone is dealing with harm, trauma, or unsafe situations.',
+          summary: 'This is a sensitive area, and people often need calm, careful support. We offer a space that is respectful, non-judgmental, and focused on safety.',
+          image: '../assets/abuse-selfharm.svg',
+          whyTitle: 'Why we offer abuse and self-harm support',
+          points: [
+            ['Why we help', 'People dealing with harm or trauma deserve to be met with care and seriousness.'],
+            ['How we help', 'We provide emotional support, careful listening, and help thinking through the next safest step.'],
+            ['What support looks like', 'Support may include talking about trauma, harm, self-harm urges, fear, or feeling unsafe and alone.']
+          ]
+        }
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const rawTopic = params.get('topic') || 'general';
+      const key = rawTopic === 'abuse-selfharm' ? 'abuse_selfharm' : rawTopic;
+      const topic = topics[key] || topics.general;
+      document.getElementById('offer-eyebrow').textContent = topic.eyebrow;
+      document.getElementById('offer-title').textContent = topic.title;
+      document.getElementById('offer-summary').textContent = topic.summary;
+      document.getElementById('offer-image').src = topic.image;
+      document.getElementById('offer-image').alt = `${topic.eyebrow} illustration`;
+      document.getElementById('offer-why-title').textContent = topic.whyTitle;
+      document.getElementById('offer-points').innerHTML = topic.points.map(([title, text]) => `<article class="glass story-card"><h3>${title}</h3><p>${text}</p></article>`).join('');
+    </script>
+  </body>
+</html>

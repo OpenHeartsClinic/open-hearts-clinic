@@ -1,0 +1,29 @@
+<svg width="640" height="760" viewBox="0 0 640 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="70" y1="60" x2="566" y2="708" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFDFB"/>
+      <stop offset="1" stop-color="#F5FAF8"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="320" y1="104" x2="320" y2="690" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FCF8F5"/>
+    </linearGradient>
+    <linearGradient id="coat2" x1="320" y1="442" x2="320" y2="696" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E3A48E"/>
+      <stop offset="1" stop-color="#CA8870"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="760" rx="40" fill="url(#bg2)"/>
+  <rect x="82" y="74" width="476" height="612" rx="34" fill="url(#card2)" stroke="#F0E4DD" stroke-width="2"/>
+  <circle cx="170" cy="136" r="36" fill="#D6F3ED" opacity="0.95"/>
+  <circle cx="474" cy="146" r="32" fill="#FFD9CC" opacity="0.92"/>
+  <circle cx="320" cy="286" r="130" fill="#FFF1E9"/>
+  <path d="M210 648C210 548 260 476 320 476C380 476 430 548 430 648V690H210V648Z" fill="url(#coat2)"/>
+  <path d="M252 690C268 630 290 598 320 598C350 598 372 630 388 690" fill="#FFF7F2"/>
+  <ellipse cx="320" cy="288" rx="82" ry="106" fill="#FEDBCC"/>
+  <path d="M246 286C246 214 278 170 322 170C366 170 398 214 398 286V320H246V286Z" fill="#35585D"/>
+  <circle cx="294" cy="286" r="7" fill="#FFFFFF"/>
+  <circle cx="348" cy="286" r="7" fill="#FFFFFF"/>
+  <path d="M284 318C296 330 308 336 321 336C334 336 346 330 358 318" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+  <path d="M240 708H400" stroke="#EEE0D8" stroke-width="5" stroke-linecap="round"/>
+</svg>

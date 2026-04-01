@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Hearts | Therapy Support</title>
+    <meta
+      name="description"
+      content="Open Hearts offers friendly online therapy and support with a free first session and a calm, welcoming booking experience."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="#home" aria-label="Open Hearts home">
+          <span class="brand-logo" aria-hidden="true">
+            <span class="logo-orbit"></span>
+            <svg class="logo-svg" viewBox="0 0 120 120" role="img" aria-hidden="true">
+              <defs>
+                <linearGradient id="heartFill" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#fff7f2"></stop>
+                  <stop offset="55%" stop-color="#ffbfa3"></stop>
+                  <stop offset="100%" stop-color="#ff9a8e"></stop>
+                </linearGradient>
+                <linearGradient id="ringStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffd8bd"></stop>
+                  <stop offset="100%" stop-color="#7ad6ca"></stop>
+                </linearGradient>
+              </defs>
+              <circle class="logo-halo" cx="60" cy="60" r="38"></circle>
+              <path class="logo-ring" d="M60 14C34.6 14 14 34.6 14 60s20.6 46 46 46 46-20.6 46-46"></path>
+              <path class="logo-heart" d="M60 89C42 76 26 62 26 44c0-11.1 8.4-19 18.3-19 6.5 0 12.2 3.1 15.7 8.4 3.5-5.3 9.2-8.4 15.7-8.4C85.6 25 94 32.9 94 44c0 18-16 32-34 45Z"></path>
+              <path class="logo-heal" d="M45 55c5 7 10 10 15 10 6 0 11-3 16-10"></path>
+            </svg>
+          </span>
+          <span class="brand-text">
+            <strong>Open Hearts</strong>
+            <small>Friendly therapy and support</small>
+          </span>
+        </a>
+
+        <nav class="nav">
+          <a href="#about">About</a>
+          <a href="#offers">What We Offer</a>
+          <a href="#therapists">Therapists</a>
+          <a href="#booking">Book</a>
+          <button class="nav-admin" id="open-admin" type="button">Admin</button>
+        </nav>
+      </header>
+
+      <main id="home">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Welcoming online support</p>
+            <h1>A gentle place to ask for help.</h1>
+            <p class="hero-text">
+              Open Hearts is designed to feel warm, clear, and reassuring from the first visit.
+              Clients can explore support, meet therapists, and request a first session without pressure.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#booking">Book A Free Session</a>
+              <a class="button button-secondary" href="#offers">See What We Offer</a>
+            </div>
+
+            <ul class="hero-points">
+              <li>First session free</li>
+              <li>Confidential online support</li>
+              <li>Kind and approachable care</li>
+            </ul>
+          </div>
+
+          <div class="hero-visual glass">
+            <img src="./assets/hero-support.svg" alt="Open Hearts friendly support illustration" />
+          </div>
+        </section>
+
+        <section class="trust-strip">
+          <div>Friendly and approachable design</div>
+          <div>Simple online booking</div>
+          <div>Private and supportive care</div>
+        </section>
+
+        <section class="section section-story" id="about">
+          <div class="section-heading">
+            <p class="eyebrow">About Open Hearts</p>
+            <h2>A support service built to feel safe, soft, and human.</h2>
+          </div>
+          <div class="story-grid">
+            <article class="glass story-card feature-large">
+              <p class="mini-label">Client experience</p>
+              <h3>Designed to make the first step easier.</h3>
+              <p>
+                From the colours to the wording, everything is set up to reduce overwhelm and help people reach out with confidence.
+              </p>
+            </article>
+            <article class="glass story-card">
+              <h3>Clear pricing</h3>
+              <p>First session free, then simple ongoing support at a fixed rate.</p>
+            </article>
+            <article class="glass story-card">
+              <h3>Warm communication</h3>
+              <p>Kind, professional language that feels personal rather than clinical.</p>
+            </article>
+            <article class="glass story-card">
+              <h3>Ready to grow</h3>
+              <p>This version works locally now and can be connected to a real backend later.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="offers">
+          <div class="section-heading">
+            <p class="eyebrow">What We Offer</p>
+            <h2>Support for the areas of life that can feel heavy.</h2>
+          </div>
+          <div class="offers-grid">
+            <article class="glass offer-card">
+              <img class="offer-image" src="./assets/money.svg" alt="Money worries support illustration" />
+              <h3>Money worries</h3>
+              <p>We support people feeling stressed, trapped, or exhausted by finances, bills, debt pressure, and uncertainty around work or stability.</p>
+              <a class="button button-secondary offer-link" href="./offers/offer.html?topic=money">See how we help with money worries</a>
+            </article>
+            <article class="glass offer-card">
+              <img class="offer-image" src="./assets/general.svg" alt="General support illustration" />
+              <h3>General help</h3>
+              <p>For people who do not know exactly what category they fit into but still need a safe place to talk through life problems and feel supported.</p>
+              <a class="button button-secondary offer-link" href="./offers/offer.html?topic=general">See how we help with general support</a>
+            </article>
+            <article class="glass offer-card">
+              <img class="offer-image" src="./assets/mental.svg" alt="Mental health support illustration" />
+              <h3>Mental health</h3>
+              <p>Support with anxiety, low mood, overwhelm, grief, emotional exhaustion, and the everyday impact of carrying too much for too long.</p>
+              <a class="button button-secondary offer-link" href="./offers/offer.html?topic=mental">See how we help with mental health</a>
+            </article>
+            <article class="glass offer-card">
+              <img class="offer-image" src="./assets/relationships.svg" alt="Relationship support illustration" />
+              <h3>Relationships</h3>
+              <p>Guidance for couples, breakups, family tension, trust problems, and difficult patterns that affect connection and emotional safety.</p>
+              <a class="button button-secondary offer-link" href="./offers/offer.html?topic=relationships">See how we help with relationships</a>
+            </article>
+            <article class="glass offer-card">
+              <img class="offer-image" src="./assets/studies.svg" alt="School and studies support illustration" />
+              <h3>School and studies</h3>
+              <p>Support for academic pressure, fear of failure, study stress, low confidence, and the mental load that comes with education and exams.</p>
+              <a class="button button-secondary offer-link" href="./offers/offer.html?topic=studies">See how we help with studies</a>
+            </article>
+            <article class="glass offer-card">
+              <img class="offer-image" src="./assets/addiction.svg" alt="Addiction support illustration" />
+              <h3>Addiction</h3>
+              <p>Compassionate support for harmful habits, dependency, recovery conversations, and understanding the emotional pain behind coping patterns.</p>
+              <a class="button button-secondary offer-link" href="./offers/offer.html?topic=addiction">See how we help with addiction</a>
+            </article>
+            <article class="glass offer-card offer-card-wide">
+              <img class="offer-image" src="./assets/abuse-selfharm.svg" alt="Abuse and self-harm support illustration" />
+              <h3>Abuse and self-harm</h3>
+              <p>Careful, non-judgmental support for people dealing with harm, trauma, unsafe situations, or self-harm concerns who need a calm next step.</p>
+              <a class="button button-secondary offer-link" href="./offers/offer.html?topic=abuse-selfharm">See how we help with abuse and self-harm</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="therapists">
+          <div class="section-heading">
+            <p class="eyebrow">Meet The Team</p>
+            <h2>Meet the professionals behind Open Hearts.</h2>
+          </div>
+          <div class="therapist-grid premium-therapists">
+            <article class="glass therapist-card premium-therapist-card">
+              <img class="therapist-image portrait-image" src="./assets/therapist-james.svg" alt="Adrian Cole portrait illustration" />
+              <div class="therapist-meta-row">
+                <span class="avatar">JL</span>
+                <span class="therapist-tag">Senior Therapist</span>
+              </div>
+              <h3>Adrian Cole</h3>
+              <p class="role">Anxiety, stress, and emotional steadiness</p>
+              <p>James helps clients slow things down, understand anxious patterns, and build practical ways to feel more grounded in daily life.</p>
+            </article>
+            <article class="glass therapist-card premium-therapist-card">
+              <img class="therapist-image portrait-image" src="./assets/therapist-daniel.svg" alt="Ethan Hale portrait illustration" />
+              <div class="therapist-meta-row">
+                <span class="avatar">DN</span>
+                <span class="therapist-tag">Relationship Specialist</span>
+              </div>
+              <h3>Ethan Hale</h3>
+              <p class="role">Relationships, communication, and change</p>
+              <p>Daniel supports clients through relationship tension, life transitions, and the emotional strain that comes with conflict and disconnection.</p>
+            </article>
+            <article class="glass therapist-card premium-therapist-card">
+              <img class="therapist-image portrait-image" src="./assets/therapist-samuel.svg" alt="Marcus Reid portrait illustration" />
+              <div class="therapist-meta-row">
+                <span class="avatar">SM</span>
+                <span class="therapist-tag">Recovery Support</span>
+              </div>
+              <h3>Marcus Reid</h3>
+              <p class="role">Grief, recovery, and emotional resilience</p>
+              <p>Samuel offers calm, compassionate support for loss, healing, and moving forward after emotionally difficult experiences.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section booking-section" id="booking">
+          <div class="booking-copy">
+            <p class="eyebrow">Book Online</p>
+            <h2>Request your free first session.</h2>
+            <p>
+              Submit your details and preferred date to begin. This demo version stores requests on this device so you can test the full journey straight away.
+            </p>
+            <div class="price-panel glass">
+              <div>
+                <strong>Session one</strong>
+                <span>Free</span>
+              </div>
+              <div>
+                <strong>Future sessions</strong>
+                <span>&pound;50</span>
+              </div>
+            </div>
+          </div>
+
+          <form class="glass booking-form" id="booking-form">
+            <label>
+              Full name
+              <input id="name" name="name" type="text" placeholder="Your name" required />
+            </label>
+            <label>
+              Email address
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              Phone number
+              <input id="phone" name="phone" type="tel" placeholder="07123 456789" required />
+            </label>
+            <div class="booking-date-time">
+              <label>
+                Preferred date
+                <input id="date" name="date" type="date" required />
+              </label>
+              <label>
+                Preferred time
+                <input id="time" name="time" type="time" required />
+              </label>
+            </div>
+            <label>
+              What would you like support with?
+              <textarea id="message" name="message" rows="5" placeholder="A short note is enough." required></textarea>
+            </label>
+            <button class="button button-primary" type="submit">Request Free Session</button>
+            <p class="form-response" id="form-response" aria-live="polite"></p>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal hidden" id="admin-modal" aria-hidden="true">
+      <div class="modal-card glass">
+        <button class="close-button" id="close-admin" type="button" aria-label="Close admin">&times;</button>
+        <div id="admin-login-view">
+          <p class="eyebrow">Admin Access</p>
+          <h2>Back-office login</h2>
+          <p class="modal-copy">Demo login for local testing. Credentials are shown in the setup guide and can be replaced when you connect a real backend.</p>
+          <form id="admin-login-form" class="admin-form">
+            <label>
+              Email
+              <input id="admin-email" name="admin-email" type="email" required />
+            </label>
+            <label>
+              Password
+              <input id="admin-password" name="admin-password" type="password" required />
+            </label>
+            <button class="button button-primary" type="submit">Log In</button>
+            <p class="form-response" id="admin-response" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="hidden" id="admin-dashboard-view">
+          <div class="admin-header">
+            <div>
+              <p class="eyebrow">Admin Dashboard</p>
+              <h2>Booking requests</h2>
+            </div>
+            <button class="button button-secondary" id="admin-logout" type="button">Log Out</button>
+          </div>
+          <div class="admin-stats admin-stats-wide">
+            <div class="glass stat-card">
+              <strong id="booking-count">0</strong>
+              <span>Total bookings</span>
+            </div>
+            <div class="glass stat-card">
+              <strong id="pending-count">0</strong>
+              <span>Pending review</span>
+            </div>
+            <div class="glass stat-card">
+              <strong id="accepted-count">0</strong>
+              <span>Accepted</span>
+            </div>
+            <div class="glass stat-card">
+              <strong id="declined-count">0</strong>
+              <span>Declined</span>
+            </div>
+          </div>
+          <div class="admin-workflow glass">
+            <div>
+              <strong>Daily workflow</strong>
+              <p class="admin-workflow-copy">Open a booking to inspect the details, choose accept or decline, and the status will update immediately so your dashboard stays organised.</p>
+            </div>
+            <div class="workflow-steps">
+              <span>1. Review the request</span>
+              <span>2. Update the status</span>
+              <span>3. Send the message</span>
+            </div>
+          </div>
+          <div class="booking-filters" id="booking-filters">
+            <button class="filter-button active" type="button" data-filter="all">All</button>
+            <button class="filter-button" type="button" data-filter="pending">Pending</button>
+            <button class="filter-button" type="button" data-filter="accepted">Accepted</button>
+            <button class="filter-button" type="button" data-filter="declined">Declined</button>
+          </div>
+          <div class="bookings-list" id="bookings-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal hidden" id="details-modal" aria-hidden="true">
+      <div class="modal-card glass modal-small">
+        <button class="close-button" id="close-details" type="button" aria-label="Close details">&times;</button>
+        <div id="details-content"></div>
+      </div>
+    </div>
+
+    <div class="modal hidden" id="email-modal" aria-hidden="true">
+      <div class="modal-card glass modal-small">
+        <button class="close-button" id="close-email" type="button" aria-label="Close email">&times;</button>
+        <div class="email-header">
+          <div class="email-logo-wrap">
+            <img src="./assets/hero-support.svg" alt="Open Hearts logo style illustration" class="email-logo" />
+          </div>
+          <div>
+            <p class="eyebrow">Open Hearts</p>
+            <h2 id="email-modal-title">Send a patient message</h2>
+            <p class="modal-copy">Edit the template below, then click send to open your email app with the message ready to go.</p>
+          </div>
+        </div>
+        <div class="detail-grid compact-grid" id="email-summary"></div>
+        <div class="email-preview-card">
+          <div class="email-preview-top">
+            <img src="./assets/hero-support.svg" alt="Open Hearts logo preview" class="email-preview-logo" />
+            <div>
+              <strong>Open Hearts</strong>
+              <p>Email preview</p>
+            </div>
+          </div>
+          <div class="email-preview-body" id="email-preview-body"></div>
+        </div>
+        <label>
+          Message
+          <textarea id="email-message" rows="10"></textarea>
+        </label>
+        <div class="booking-action-row single-row">
+          <button class="button button-primary" id="send-email" type="button">Send Email</button>
+        </div>
+        <p class="email-note" id="email-note"></p>
+      </div>
+    </div>
+
+    <script src="./config.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
+
+
+
+
